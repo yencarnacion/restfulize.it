@@ -5,14 +5,20 @@ class RestfulizeitDatabase {
     String nickname
     String databaseDriverClassname
     String databaseUrl
-    DatabaseCredentials databaseCredentials = new DatabaseCredentials()
+    String pathOnServer
+    Boolean secured
+    Credentials securedCredentials
+    Credentials databaseCredentials
 
     static constraints = {
         nickname(unique: true)
         databaseUrl()
         databaseDriverClassname()
-        databaseCredentials()
+        pathOnServer()
+        secured()
+        securedCredentials()
+        //databaseCredentials()
     }
 
-    static embedded = ['databaseCredentials']
+    static embedded = ['securedCredentials', 'databaseCredentials']
 }
